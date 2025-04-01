@@ -17,7 +17,7 @@ En este ejercicio, vamos a crear un sistema básico de historial utilizando arra
      - `fecha`: la fecha y hora en que se agregó la acción.
 
 2. **Crear funciones para gestionar el historial**:
-   - **Agregar una nueva acción al historial**: Esta función tomará un `id` y una `descripcion`, y los agregará como un nuevo objeto al array `historial`. Debe registrar también la fecha y hora actuales. (esto lo podemos hacer con new Date().toISOString() ) 
+   - **Agregar una nueva acción al historial**: Esta función tomará un `id` (Almenos que usen un autoincremental o uuid o alguna funcion custom que genere un id random) y una `descripcion`, y los agregará como un nuevo objeto al array `historial`. Debe registrar también la fecha y hora actuales. (esto lo podemos hacer con new Date().toISOString() ) 
    - **Eliminar una acción del historial por ID**: Esta función tomará un `id` como parámetro y eliminará la acción que tenga ese `id` del historial.
    - **Eliminar todo el historial**: Esta función borrará todas las acciones del historial, dejando el array vacío.
 

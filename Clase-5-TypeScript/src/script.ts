@@ -152,3 +152,26 @@ class Gestor {
         this.tareas.push(nueva_tarea)
     }
 }
+
+
+class Personaje {
+    inventario : string[] = []
+    nombre : string 
+    especie: string = 'humana'
+    constructor(nombre: string){
+        this.nombre = nombre
+    }
+
+
+    agregarAlInventario (item: string){
+        this.inventario.push(item)
+    }
+
+    setEspecie (especie: string) :void{
+        this.especie = especie
+    }
+}
+
+let pepe = new Personaje('pepe')
+pepe.setEspecie('lobo')
+new Personaje('maria')
