@@ -12,7 +12,8 @@
     },
     "include": [
         "src", 
-        "script.js"    
+        "script.js",
+        "tarea-2.ts"
     ],
     "exclude": [
         "node_modules"

@@ -57,7 +57,7 @@ class Historial{
     }
 }
 
-const accion_1 = new Historial()
+/* const accion_1 = new Historial()
 
 accion_1.agregarAccion('Mandar Mensaje', new Date(), 'Agustin')
 accion_1.agregarAccion('Responder Mensaje', new Date(), 'Nicolas')
@@ -75,4 +75,4 @@ accion_1.mostrarHistorial()
 
 accion_1.eliminarHistorial()
 console.log('HISTORIALL ACTUALIZADO VACIO')
-accion_1.mostrarHistorial()
+accion_1.mostrarHistorial() */
