@@ -1,0 +1,7 @@
+CREATE TABLE workspaces (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(50),
+    owner_id INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (owner_id) REFERENCES users(id) ON DELETE CASCADE
+)
