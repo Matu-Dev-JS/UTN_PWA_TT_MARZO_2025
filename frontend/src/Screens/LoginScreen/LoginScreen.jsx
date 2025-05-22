@@ -20,12 +20,36 @@ const LoginScreen = () => {
     //ESTADOS en react: CONTROLAN cuando re va a re-renderizar un componente
     //{email: '', password: ''}
     const [form_state, setFormState] = useState({ email: '', password: '' })
-    const handleSubmit = (event) => {
-        event.preventDefault()
-        console.log('Se envio el formulario')
-        //Capturo los valores de mi form
-        //Los envio a mi API
-        console.log(form_state)
+
+    const handleSubmit = async (event) => {
+        try {
+            event.preventDefault()
+            console.log('Se envio el formulario')
+            //Capturo los valores de mi form
+            console.log(form_state)
+
+            //Los envio a mi API
+            const server_response_http = await fetch(
+                `http://localhost:3000/api/users/login`,
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(
+                        {
+                            email: form_state.email,
+                            password: form_state.password
+                        }
+                    )
+                }
+            )
+            console.log(server_response_http)
+        }
+        catch (error){
+            alert("Ocurrio un error")
+            console.error('Ocurrio un error en el formulario de login', error)
+        }
     }
 
     const handleChange = (event) => {

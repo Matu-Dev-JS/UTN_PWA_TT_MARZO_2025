@@ -120,6 +120,7 @@ class UserController {
 
     async login(request, response){
         try{
+        
             const {email, password} = request.body
 
             if(!email){

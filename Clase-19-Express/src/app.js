@@ -2,7 +2,7 @@
 
 import { ENVIRONMENT } from "./environment.js";
 import {connectDB} from './config/db.config.js'
-
+import cors from 'cors'
 
 connectDB()
 
@@ -20,6 +20,9 @@ import productsRouter from "./routes/products.router.js";
 import transporter from "./config/mail.config.js";
 
 const app = express() //Crea una aplicacion de express
+
+//Deshabilita la polica de CORS
+app.use(cors())
 
 //Configurar que nuestra API pueda recibir JSON en un body
 app.use(express.json())
