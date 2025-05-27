@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import './LoginScreen.css'
+import LOCALSTORAGE_KEYS from '../../constants/localstorage'
+import { useNavigate } from 'react-router-dom'
 
 const LoginScreen = () => {
 
@@ -20,6 +22,10 @@ const LoginScreen = () => {
     //ESTADOS en react: CONTROLAN cuando re va a re-renderizar un componente
     //{email: '', password: ''}
     const [form_state, setFormState] = useState({ email: '', password: '' })
+
+    const [error, setError] = useState(null)
+
+    const navigate = useNavigate()
 
     const handleSubmit = async (event) => {
         try {
@@ -44,10 +50,28 @@ const LoginScreen = () => {
                     )
                 }
             )
-            console.log(server_response_http)
+            const server_response_data = await server_response_http.json()
+
+            
+            console.log(server_response_data)
+            if(server_response_data.ok){
+                if(server_response_data.status === 200){
+                    localStorage.setItem(
+                        LOCALSTORAGE_KEYS.AUTHORIZATION_TOKEN, 
+                        server_response_data.data.authorization_token
+                    )
+                    navigate('/home')
+                }
+            }
+            else{
+                setError(server_response_data.message)
+            }
+            
+            
         }
         catch (error){
             alert("Ocurrio un error")
+            console.log(error)
             console.error('Ocurrio un error en el formulario de login', error)
         }
     }
@@ -68,7 +92,7 @@ const LoginScreen = () => {
         )
     }
 
-
+    console.log(error)
     return (
         <div>
             {/* <span>{contador}</span>
@@ -98,6 +122,7 @@ const LoginScreen = () => {
 
                     />
                 </div>
+                {error && <span style={{color: 'red'}}>{error}</span>}
                 <button type='submit'>Iniciar sesion</button>
             </form>
         </div>

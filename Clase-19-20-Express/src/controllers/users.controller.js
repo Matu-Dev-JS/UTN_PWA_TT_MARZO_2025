@@ -94,6 +94,7 @@ class UserController {
             await userRepository.verifyUserEmail({email: contenido.email})
 
             response.send({
+                status: 200,
                 ok: true,
                 message: 'Usuario validado con exito'
             })
@@ -156,7 +157,7 @@ class UserController {
             ENVIRONMENT.JWT_SECRET_KEY
             )
             //PASO 4: Responder con el token
-            response.send({
+            response.status(200).send({
                 ok: true,
                 status: 200,
                 message: 'Usuario logueado',
