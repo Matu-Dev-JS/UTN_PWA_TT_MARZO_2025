@@ -5,6 +5,7 @@ import RegisterScreen from './Screens/RegisterScreen/RegisterScreen'
 import HomeScreen from './Screens/HomeScreen/HomeScreen'
 
 const App = () => {
+  
     return (
         <div>
             <Routes>
